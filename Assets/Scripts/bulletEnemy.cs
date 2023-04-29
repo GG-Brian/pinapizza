@@ -1,0 +1,37 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+
+public class bulletEnemy : MonoBehaviour
+{
+    public static float bulletSpeed = 5f;
+    //bool pass = false;
+    // Start is called before the first frame update
+    void Start()
+    {
+        Vector2 diferencia = GameObject.Find("Player").transform.position - transform.position;
+        GetComponent<Rigidbody2D>().velocity = diferencia.normalized * bulletSpeed;
+        Destroy(gameObject,10f);
+       // pass=false;
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+
+    void OnTriggerEnter2D (Collider2D colision){
+        if(colision.gameObject.tag == "Player"){
+            Debug.Log("Choca con el Player");
+            SceneManager.LoadScene("Lose",LoadSceneMode.Single);
+        }
+        if(colision.gameObject.tag == "PlayerBullet"){
+            Destroy(colision.gameObject); // Bale player
+            Destroy(gameObject); // Bala enemigo
+            //GameObject.Find("SoundManager").GetComponent<soundManager>().PlayAudio("choque");
+            //hud.score++;
+        }
+    }
+}
