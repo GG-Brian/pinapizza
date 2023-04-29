@@ -14,11 +14,11 @@ public class screenVictory : MonoBehaviour {
     }
 
     public void gameMenu() {
-
+        SceneManager.LoadScene("Menu");
     }
 
     public void gamePlay(){
-
+        SceneManager.LoadScene("Gameplay");
     }
 
     public void gameCredits() {
