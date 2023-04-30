@@ -39,19 +39,26 @@ public class EnemySpawner : MonoBehaviour
     }
 
     private void SpawnEnemies()
+{
+    int enemyCount = Mathf.CeilToInt(currentRoom * 0.5f); // Increase enemy count based on the room number
+    GameObject currentRoomObj = proceduralRooms.rooms[currentRoom];
+
+    for (int i = 0; i < enemyCount; i++)
     {
-        int enemyCount = Mathf.CeilToInt(currentRoom * 0.5f); // Increase enemy count based on the room number
-        GameObject currentRoomObj = proceduralRooms.rooms[currentRoom];
+        Vector3 spawnPosition = new Vector3(
+            currentRoomObj.transform.position.x + Random.Range(0, 9.5f),
+            Random.Range(-3.5f, 2.5f),
+            0
+        );
 
-        for (int i = 0; i < enemyCount; i++)
+        GameObject spawnedEnemy = Instantiate(enemyPizzaPrefab, spawnPosition, Quaternion.identity);
+        
+        if (currentRoom == 5) // Check if it's the 5th room
         {
-            Vector3 spawnPosition = new Vector3(
-                currentRoomObj.transform.position.x + Random.Range(0, 9.5f),
-                Random.Range(-3.5f, 2.5f),
-                0
-            );
-
-            Instantiate(enemyPizzaPrefab, spawnPosition, Quaternion.identity);
+            spawnedEnemy.transform.localScale *= 2; // Make the enemy twice as large
+            enemyController controller = spawnedEnemy.GetComponent<enemyController>();
+            controller.shootInterval = 0.8333f; // Make the enemy shoot three times faster (2.5f / 3)
         }
     }
+}
 }
