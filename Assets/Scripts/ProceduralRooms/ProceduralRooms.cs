@@ -11,7 +11,7 @@ public class ProceduralRooms : MonoBehaviour
     public float distanceThreshold = 2f;
     public float resetThreshold = 5f;
 
-    private List<GameObject> rooms;
+    public List<GameObject> rooms;
     private float currentX;
 
     // Start is called before the first frame update
