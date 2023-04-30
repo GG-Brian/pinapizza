@@ -10,9 +10,12 @@ public class hud : MonoBehaviour
     public static int municion = 5;
     public static int pizza = 0;
     public static int pizzaTotal = 0;
-    void Start()
+    void Awake()
     {
-
+        vida = 3;
+        municion = 5;
+        pizza = 0;
+        pizzaTotal = 0;
     }
 
     // Update is called once per frame
