@@ -1454,7 +1454,7 @@ PrefabInstance:
     - target: {fileID: 5527121768800676512, guid: 4ae6555dbe97c174fad95bc4fb6b3e05, type: 3}
       propertyPath: bulletPrefab
       value: 
-      objectReference: {fileID: 1269059737127979949, guid: 31097fc130d396148995819025064353, type: 3}
+      objectReference: {fileID: 1269059737127979949, guid: 118112b242e6c484ea3da405ca42c7bd, type: 3}
     - target: {fileID: 5527121768800676513, guid: 4ae6555dbe97c174fad95bc4fb6b3e05, type: 3}
       propertyPath: m_Name
       value: Player

@@ -28,8 +28,5 @@ public class hud : MonoBehaviour
 
 
         GameObject.Find("Pizza").GetComponent<TextMeshProUGUI>().text = "Pizza: " + pizza;
-
-       
-        
     }
 }
