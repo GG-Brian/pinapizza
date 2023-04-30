@@ -21,8 +21,11 @@ public class menu : MonoBehaviour
         SceneManager.LoadScene("Main Scene",LoadSceneMode.Single);
     }
 
-   public void QuitGame()
-    {
+   public void QuitGame() {
         Application.Quit();
+    }
+
+    public void CreditsGame() {
+        SceneManager.LoadScene("Credits", LoadSceneMode.Single);
     }
 }
