@@ -7,11 +7,13 @@ public class playerController : MonoBehaviour
     // Start is called before the first frame update
     public GameObject bulletPrefab;
     public float bulletSpeed = 5f;
+    public AudioSource _audioSource;
+    public List<AudioClip> sounds;
     //public int municion = 5;
 
     void Start()
     {
-
+        _audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class SoundManager : MonoBehaviour
 {
+    public List<AudioClip> sounds;
+
     private static SoundManager _instance;
     public static SoundManager Instance
     {
