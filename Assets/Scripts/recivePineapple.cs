@@ -4,17 +4,27 @@ using UnityEngine;
 
 public class recivePineapple : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private int index = 0;
+    private static bool touchedFirstTime = false;
+
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        
+        if (collision.gameObject.tag == "Player" && hud.municion < 9)
+        {
+            if (!touchedFirstTime)
+            {
+                touchedFirstTime = true;
+                index++;
+                hud.municion += 5;
+            }
+            if (index == 0)
+            {
+                hud.municion += 2;
+                index++;
+            }
+            //hud.score++;
+        }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
-  
 }
