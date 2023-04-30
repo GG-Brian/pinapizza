@@ -18,7 +18,7 @@ public class menu : MonoBehaviour
     }
 
     public void playGame(){
-        SceneManager.LoadScene("Main Scene",LoadSceneMode.Single);
+        SceneManager.LoadScene("Main Infinite Scene",LoadSceneMode.Single);
     }
 
    public void QuitGame() {
