@@ -18,7 +18,7 @@ public class screenVictory : MonoBehaviour {
     }
 
     public void gamePlay(){
-        SceneManager.LoadScene("Gameplay");
+        SceneManager.LoadScene("Main Scene");
     }
 
     public void gameCredits() {

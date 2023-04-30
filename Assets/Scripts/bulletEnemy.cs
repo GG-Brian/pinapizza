@@ -12,22 +12,31 @@ public class bulletEnemy : MonoBehaviour
     {
         Vector2 diferencia = GameObject.Find("Player").transform.position - transform.position;
         GetComponent<Rigidbody2D>().velocity = diferencia.normalized * bulletSpeed;
-        Destroy(gameObject,10f);
-       // pass=false;
+        Destroy(gameObject, 10f);
+        // pass=false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
-    void OnTriggerEnter2D (Collider2D colision){
-        if(colision.gameObject.tag == "Player"){
+    void OnTriggerEnter2D(Collider2D colision)
+    {
+        if (colision.gameObject.tag == "Player")
+        {
+            Destroy(gameObject);
             Debug.Log("Choca con el Player");
-            SceneManager.LoadScene("Lose",LoadSceneMode.Single);
+            hud.vida--;
+            if (hud.vida == 0)
+            {
+                SceneManager.LoadScene("Lose", LoadSceneMode.Single);
+            }
+
         }
-        if(colision.gameObject.tag == "PlayerBullet"){
+        if (colision.gameObject.tag == "PlayerBullet")
+        {
             Destroy(colision.gameObject); // Bale player
             Destroy(gameObject); // Bala enemigo
             //GameObject.Find("SoundManager").GetComponent<soundManager>().PlayAudio("choque");

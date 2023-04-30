@@ -20,7 +20,7 @@ public class pineapplePizza : MonoBehaviour
         if(colision.gameObject.tag == "Player"){
             Destroy(gameObject); // Bale player
             //GameObject.Find("SoundManager").GetComponent<soundManager>().PlayAudio("choque");
-            //hud.score++;
+            hud.pizza++;
         }
     }
 }

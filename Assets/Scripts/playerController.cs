@@ -7,6 +7,7 @@ public class playerController : MonoBehaviour
     // Start is called before the first frame update
     public GameObject bulletPrefab;
     public float bulletSpeed = 5f;
+    //public int municion = 5;
     void Start()
     {
         
@@ -43,12 +44,24 @@ public class playerController : MonoBehaviour
             Debug.Log("Izquierda tecla pulsada");
         }
 
-        if (Input.GetMouseButtonDown(0)) {
+        if (Input.GetMouseButtonDown(0) && hud.municion > 0) {
             Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             mousePosition.z = transform.position.z;
             Vector3 direction = (mousePosition - transform.position).normalized;
             GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
             bullet.GetComponent<Rigidbody2D>().velocity = direction * bulletSpeed;
+            hud.municion--;
+        }
+    }
+
+      void OnTriggerEnter2D (Collider2D colision){
+        while(colision.gameObject.tag == "recivePineapple" && hud.municion < 10){
+            Debug.Log("Choca con el Player");
+            hud.municion++;
+            //hud.score++;
+        }       
+        if(colision.gameObject.tag == "sendPizza" && hud.pizza > 0){
+            hud.pizza = 0;
         }
     }
 }
