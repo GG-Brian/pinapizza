@@ -9,10 +9,17 @@ public class enemyController : MonoBehaviour
 
     public GameObject pineapplePizzaPrefab;
 
-    void OnDestroy() {      
-        Instantiate(pineapplePizzaPrefab, transform.position, Quaternion.identity);
-        Destroy(gameObject);
+    void OnDestroy()
+{
+    if (!Application.isPlaying || !gameObject.scene.isLoaded) // Check if the application is quitting or the object's scene is unloaded
+    {
+        return; // Don't instantiate the pineapplePizzaPrefab object
     }
+
+    Instantiate(pineapplePizzaPrefab, transform.position, Quaternion.identity);
+}
+
+
 
     //public bool pineaple = false;
     // Start is called before the first frame update
