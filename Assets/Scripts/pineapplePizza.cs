@@ -15,4 +15,12 @@ public class pineapplePizza : MonoBehaviour
     {
         
     }
+
+    void OnTriggerEnter2D (Collider2D colision){       
+        if(colision.gameObject.tag == "Player"){
+            Destroy(gameObject); // Bale player
+            //GameObject.Find("SoundManager").GetComponent<soundManager>().PlayAudio("choque");
+            //hud.score++;
+        }
+    }
 }

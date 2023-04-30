@@ -9,8 +9,9 @@ public class enemyController : MonoBehaviour
 
     public GameObject pineapplePizzaPrefab;
 
-    void OnDestroy() {
+    void OnDestroy() {        
         Instantiate(pineapplePizzaPrefab, transform.position, Quaternion.identity);
+        Destroy(gameObject);
     }
 
     //public bool pineaple = false;
