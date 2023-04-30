@@ -271,6 +271,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: enemyPizza (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3261899020733590004, guid: 4c27a188799269e49a86224652df7dcd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4c27a188799269e49a86224652df7dcd, type: 3}
 --- !u!1 &1660500298
@@ -368,6 +372,7 @@ GameObject:
   - component: {fileID: 1993664677}
   - component: {fileID: 1993664679}
   - component: {fileID: 1993664678}
+  - component: {fileID: 1993664680}
   m_Layer: 0
   m_Name: '[ProceduralRooms GameController]'
   m_TagString: Untagged
@@ -425,8 +430,24 @@ MonoBehaviour:
   - {fileID: 3790543401240028022, guid: 62389e6b301b3154ea61bc497e27f83c, type: 3}
   roomWidth: 25
   playerTransform: {fileID: 812839348}
-  distanceThreshold: 2
+  distanceThreshold: 3
   resetThreshold: 0
+  rooms: []
+--- !u!114 &1993664680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1993664676}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcedfcfee0e212a44b7b68370e580aea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyPizzaPrefab: {fileID: 3261899020733590004, guid: 4c27a188799269e49a86224652df7dcd, type: 3}
+  playerTransform: {fileID: 812839348}
+  initialRoom: 0
 --- !u!1001 &2071363019
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -485,6 +506,10 @@ PrefabInstance:
     - target: {fileID: 3261899020733590004, guid: 4c27a188799269e49a86224652df7dcd, type: 3}
       propertyPath: m_Name
       value: enemyPizza (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3261899020733590004, guid: 4c27a188799269e49a86224652df7dcd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4c27a188799269e49a86224652df7dcd, type: 3}
