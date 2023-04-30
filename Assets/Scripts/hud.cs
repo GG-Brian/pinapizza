@@ -9,6 +9,7 @@ public class hud : MonoBehaviour
     public static int vida = 3;
     public static int municion = 5;
     public static int pizza = 0;
+    public static int pizzaTotal = 0;
     void Start()
     {
 
