@@ -53,7 +53,7 @@ public class EnemySpawner : MonoBehaviour
 
         GameObject spawnedEnemy = Instantiate(enemyPizzaPrefab, spawnPosition, Quaternion.identity);
         
-        if (currentRoom == 5) // Check if it's the 5th room
+        if (currentRoom % 5 == 0 && i == 0) // Check if it's a multiple of 5 and the first enemy in the room
         {
             spawnedEnemy.transform.localScale *= 2; // Make the enemy twice as large
             enemyController controller = spawnedEnemy.GetComponent<enemyController>();
