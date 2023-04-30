@@ -18,7 +18,7 @@ public class screenVictory : MonoBehaviour {
     }
 
     public void gamePlay(){
-        SceneManager.LoadScene("Main Infinite Scene");
+        SceneManager.LoadScene("Main Infinite Scene 1");
     }
 
     public void gameCredits() {
