@@ -10,6 +10,7 @@ TagManager:
   - recivePineapple
   - pineapplePizza
   - sendPizza
+  - PizzaEnviadas
   layers:
   - Default
   - TransparentFX

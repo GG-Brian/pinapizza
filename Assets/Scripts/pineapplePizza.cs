@@ -21,6 +21,7 @@ public class pineapplePizza : MonoBehaviour
             Destroy(gameObject); // Bale player
             //GameObject.Find("SoundManager").GetComponent<soundManager>().PlayAudio("choque");
             hud.pizza++;
+            screenVictory.pizzaTotal++;
         }
     }
 }
