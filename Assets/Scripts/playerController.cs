@@ -8,7 +8,6 @@ public class playerController : MonoBehaviour
     public GameObject bulletPrefab;
     public float bulletSpeed = 5f;
     public AudioSource _audioSource;
-    public List<AudioClip> sounds;
     //public int municion = 5;
 
     void Start()
@@ -49,6 +48,7 @@ public class playerController : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0) && hud.municion > 0)
         {
+            SoundManager.Instance.PlayAudio(_audioSource, SoundManager.Instance.sounds[1]);
             Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             mousePosition.z = transform.position.z;
             Vector3 direction = (mousePosition - transform.position).normalized;
