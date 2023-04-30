@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - bala
+  - PlayerBullet
+  - enemyPizza
   layers:
   - Default
   - TransparentFX

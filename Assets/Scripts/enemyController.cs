@@ -6,6 +6,14 @@ public class enemyController : MonoBehaviour
 {
     public bool disparar = false;
     public GameObject bulletEnemyPrefab;
+
+    public GameObject pineapplePizzaPrefab;
+
+    void OnDestroy() {
+        Instantiate(pineapplePizzaPrefab, transform.position, Quaternion.identity);
+    }
+
+    //public bool pineaple = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -45,18 +53,15 @@ public class enemyController : MonoBehaviour
             Instantiate(bulletEnemyPrefab, transform.position, Quaternion.identity);
             //GameObject.Find("SoundManager").GetComponent<soundManager>().PlayAudio("DisparoEnemy");
             yield return new WaitForSeconds(2.5f);
+        }        
+    }   
+
+     void OnTriggerEnter2D (Collider2D colision){       
+        if(colision.gameObject.tag == "PlayerBullet"){
+            Destroy(colision.gameObject); // Enemigo
+            Destroy(gameObject); // Bale player
+            //GameObject.Find("SoundManager").GetComponent<soundManager>().PlayAudio("choque");
+            //hud.score++;
         }
-
-        /*
-while(true){
-    //if((GameObject.FindGameObjectWithTag("bala") == null) && (disparar)){
-        Instantiate(bulletEnemyPrefab,transform.position,Quaternion.identity);
-        //GameObject.Find("SoundManager").GetComponent<soundManager>().PlayAudio("DisparoEnemy");
-        yield return new WaitForSeconds(2.5f);
-    //}else{
-        yield return null;
-    //}
-
-}*/
     }
 }
