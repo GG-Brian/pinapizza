@@ -7,6 +7,7 @@ public class ProceduralRooms : MonoBehaviour
     public int initialRoomCount = 10;
     public List<GameObject> roomPrefabs;
     public float roomWidth;
+    public GameObject doorPrefab;
     public Transform playerTransform;
     public float distanceThreshold = 2f;
     public float resetThreshold = 5f;
@@ -40,24 +41,36 @@ public class ProceduralRooms : MonoBehaviour
 
     // Generate a single room, selecting a random prefab from the list
     private void GenerateRoom()
+{
+    GameObject randomRoomPrefab = roomPrefabs[Random.Range(0, roomPrefabs.Count)];
+
+    if (rooms.Count > 0)
     {
-        GameObject randomRoomPrefab = roomPrefabs[Random.Range(0, roomPrefabs.Count)];
-
-        if (rooms.Count > 0)
-        {
-            currentX += roomWidth;
-        }
-
-        GameObject room = RoomCorridorPool.SharedInstance.GetPooledRoom(randomRoomPrefab);
-        if (room != null)
-        {
-            room.transform.position = new Vector3(currentX, 0, 0);
-            room.transform.rotation = Quaternion.identity;
-            room.transform.SetParent(transform);
-            room.SetActive(true);
-            rooms.Add(room);
-        }
+        currentX += roomWidth;
     }
+
+    GameObject room = RoomCorridorPool.SharedInstance.GetPooledRoom(randomRoomPrefab);
+    if (room != null)
+    {
+        room.transform.position = new Vector3(currentX, 0, 0);
+        room.transform.rotation = Quaternion.identity;
+        room.transform.SetParent(transform);
+        room.SetActive(true);
+        rooms.Add(room);
+
+        // Get the last corridor in the room
+        Transform lastCorridor = room.transform.GetChild(room.transform.childCount - 1);
+
+        // Instantiate the doorPrefab at the end of the last corridor
+        GameObject door = Instantiate(doorPrefab, new Vector3(lastCorridor.position.x + (lastCorridor.localScale.x / 2), 0, 0), Quaternion.identity);
+        door.transform.SetParent(lastCorridor);
+
+        // Set the room reference for the door
+        door.GetComponent<DoorController>().room = room;
+    }
+}
+
+
 
     // Check the distance between the player and the last room
     private void CheckDistanceToLastRoom()
