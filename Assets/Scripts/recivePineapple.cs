@@ -6,16 +6,6 @@ public class recivePineapple : MonoBehaviour
 {
     private int index = 0;
     private static bool touchedFirstTime = false;
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -26,7 +16,6 @@ public class recivePineapple : MonoBehaviour
                 touchedFirstTime = true;
                 index++;
                 hud.municion += 5;
-                Debug.Log("lol");
             }
             if (index == 0)
             {
