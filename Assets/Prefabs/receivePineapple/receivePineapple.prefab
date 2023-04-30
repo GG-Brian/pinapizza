@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7156900192915317126}
   - component: {fileID: 3764175482678653651}
   - component: {fileID: 378199763504290782}
+  - component: {fileID: -2980775126131372887}
   m_Layer: 0
   m_Name: receivePineapple
   m_TagString: recivePineapple
@@ -133,3 +134,15 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &-2980775126131372887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5953233131118305627}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 004496bc1038b16428951f45b60ee621, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
