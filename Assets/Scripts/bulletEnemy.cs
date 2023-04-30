@@ -6,11 +6,12 @@ using UnityEngine.SceneManagement;
 public class bulletEnemy : MonoBehaviour
 {
     public static float bulletSpeed = 5f;
+    
     //bool pass = false;
     // Start is called before the first frame update
     void Start()
     {
-        Vector2 diferencia = GameObject.Find("Player").transform.position - transform.position;
+        Vector2 diferencia = GameObject.Find("Player").transform.position - transform.position;        
         GetComponent<Rigidbody2D>().velocity = diferencia.normalized * bulletSpeed;
         Destroy(gameObject, 10f);
         // pass=false;
