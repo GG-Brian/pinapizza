@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class bulletEnemy : MonoBehaviour
 {
     public static float bulletSpeed = 5f;
-    
+
     //bool pass = false;
     // Start is called before the first frame update
     void Start()
@@ -17,18 +17,13 @@ public class bulletEnemy : MonoBehaviour
         // pass=false;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     void OnTriggerEnter2D(Collider2D colision)
     {
         if (colision.gameObject.tag == "Player")
         {
             Destroy(gameObject);
             Debug.Log("Choca con el Player");
+            SoundManager.Instance.PlayAudio(colision.GetComponent<playerController>()._audioSource, SoundManager.Instance.sounds[0]);
             hud.vida--;
             if (hud.vida == 0)
             {

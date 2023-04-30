@@ -6,8 +6,10 @@ public class enemyController : MonoBehaviour
 {
     public bool disparar = false;
     public GameObject bulletEnemyPrefab;
+    public AudioSource _audioSource;
 
     public GameObject pineapplePizzaPrefab;
+    public float shootInterval = 2.5f; // shootInterval variable
 
     void OnDestroy()
 {
@@ -25,6 +27,7 @@ public class enemyController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        _audioSource = GetComponent<AudioSource>();
         StartCoroutine("SpawnBullet");
     }
 
@@ -59,8 +62,9 @@ public class enemyController : MonoBehaviour
         while (true)
         {
             Instantiate(bulletEnemyPrefab, transform.position, Quaternion.identity);
+            SoundManager.Instance.PlayAudio(_audioSource, SoundManager.Instance.sounds[2]);
             //GameObject.Find("SoundManager").GetComponent<soundManager>().PlayAudio("DisparoEnemy");
-            yield return new WaitForSeconds(2.5f);
+            yield return new WaitForSeconds(shootInterval);
         }        
     }   
 
@@ -68,6 +72,7 @@ public class enemyController : MonoBehaviour
         if(colision.gameObject.tag == "PlayerBullet"){
             Destroy(colision.gameObject); // Enemigo
             Destroy(gameObject); // Bale player
+
             //GameObject.Find("SoundManager").GetComponent<soundManager>().PlayAudio("choque");
             //hud.score++;
         }

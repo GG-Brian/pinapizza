@@ -7,11 +7,12 @@ public class playerController : MonoBehaviour
     // Start is called before the first frame update
     public GameObject bulletPrefab;
     public float bulletSpeed = 5f;
+    public AudioSource _audioSource;
     //public int municion = 5;
 
     void Start()
     {
-
+        _audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -47,6 +48,7 @@ public class playerController : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0) && hud.municion > 0)
         {
+            SoundManager.Instance.PlayAudio(_audioSource, SoundManager.Instance.sounds[1]);
             Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             mousePosition.z = transform.position.z;
             Vector3 direction = (mousePosition - transform.position).normalized;
