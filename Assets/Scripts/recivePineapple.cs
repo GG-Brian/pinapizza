@@ -4,29 +4,24 @@ using UnityEngine;
 
 public class recivePineapple : MonoBehaviour
 {
-    private int ammo = 0;
-    private int index = 0;
-    private static bool touchedFirstTime = false;
+    private static int index = 0;
+    private bool alreadyCollided = false;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "Player" && !alreadyCollided)
         {
-            if (!touchedFirstTime)
-            {
-                touchedFirstTime = true;
-                index++;
-                hud.municion += 5;
-            }
+            alreadyCollided = true;
+
             if (index == 0)
             {
-                ammo += 2;
-                hud.municion += ammo;
-                index++;
+                hud.municion += 5;
             }
-            //hud.score++;
+            else
+            {
+                hud.municion += 2 * index;
+            }
+            index++;
         }
     }
-
-
 }
