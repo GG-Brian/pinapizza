@@ -56,13 +56,11 @@ public class EnemySpawner : MonoBehaviour
         GameObject spawnedEnemy = Instantiate(enemyPizzaPrefab, spawnPosition, Quaternion.identity);
 
         enemyController controller = spawnedEnemy.GetComponent<enemyController>();
-        controller.shootInterval *= Mathf.Pow(1f / 1.33f, currentRoom / 10); // Make the enemy shoot progressively faster every 10 rooms
-        
 
         if (currentRoom % 5 == 0 && i == 0) // Check if it's a multiple of 5 and the first enemy in the room
         {
             spawnedEnemy.transform.localScale *= 2; // Make the enemy twice as large
-            controller.shootInterval *= 0.8333f * Mathf.Pow(1f / 1.33f, currentRoom / 10); // Make the boss enemy shoot progressively faster
+            controller.shootInterval *= 0.3333f * Mathf.Pow(1f / 1.33f, currentRoom / 10); // Make the boss enemy shoot progressively faster
             StartCoroutine(MoveBossUpAndDown(spawnedEnemy.transform)); // Start the coroutine to move the boss enemy up and down        
         }
         else
@@ -71,6 +69,7 @@ public class EnemySpawner : MonoBehaviour
         }
     }
 }
+
 
 private IEnumerator MoveBossUpAndDown(Transform bossTransform)
 {
