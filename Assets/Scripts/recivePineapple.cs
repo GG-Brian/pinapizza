@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class recivePineapple : MonoBehaviour
 {
+    private int ammo = 0;
     private int index = 0;
     private static bool touchedFirstTime = false;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player" && hud.municion < 9)
+        if (collision.gameObject.tag == "Player")
         {
             if (!touchedFirstTime)
             {
@@ -19,7 +20,8 @@ public class recivePineapple : MonoBehaviour
             }
             if (index == 0)
             {
-                hud.municion += 2;
+                ammo + 2;
+                hud.municion += ammo;
                 index++;
             }
             //hud.score++;
