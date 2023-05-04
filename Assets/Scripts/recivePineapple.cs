@@ -7,6 +7,11 @@ public class recivePineapple : MonoBehaviour
     private static int index = 0;
     private bool alreadyCollided = false;
 
+    public void ResetState()
+    {
+        alreadyCollided = false;
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player" && !alreadyCollided)

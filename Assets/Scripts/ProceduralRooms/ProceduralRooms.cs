@@ -67,6 +67,13 @@ public class ProceduralRooms : MonoBehaviour
 
         // Set the room reference for the door
         door.GetComponent<DoorController>().room = room;
+
+        // Reset the state of recivePineapple instances in the reused room
+        recivePineapple[] pineapples = room.GetComponentsInChildren<recivePineapple>();
+        foreach (recivePineapple pineapple in pineapples)
+        {
+            pineapple.ResetState();
+        }
     }
 }
 
