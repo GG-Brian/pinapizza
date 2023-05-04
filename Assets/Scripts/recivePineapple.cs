@@ -20,7 +20,7 @@ public class recivePineapple : MonoBehaviour
             }
             if (index == 0)
             {
-                ammo + 2;
+                ammo += 2;
                 hud.municion += ammo;
                 index++;
             }
